@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             if ($action === 'update_role') {
                 $new_role = trim($_POST['role'] ?? '');
-                $valid_roles = ['member', 'beta_tester', 'mods', 'legends', 'admin'];
+                $valid_roles = ['scammer', 'sus', 'member', 'beta_tester', 'mods', 'legends', 'admin'];
                 
                 if (in_array($new_role, $valid_roles)) {
                     $stmt = $db->prepare("UPDATE users SET role = ? WHERE id = ?");
@@ -117,7 +117,6 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     <input type="hidden" name="user_id" value="<?php echo $u['id']; ?>">
                                     <input type="hidden" name="action" value="update_role">
                                     <select name="role" onchange="this.form.submit()">
-                                        <!--Roles-->
                                         <option value="scammer" <?php if($u['role']=='scammer') echo 'selected'; ?>>scammer</option>
                                         <option value="sus" <?php if($u['role']=='sus') echo 'selected'; ?>>sus</option>
                                         <option value="member" <?php if($u['role']=='member') echo 'selected'; ?>>member</option>

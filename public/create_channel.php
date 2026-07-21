@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Create Subchannel | ANG3L</title>
+    <title>Create Channel | ANG3L</title>
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <link rel="stylesheet" type="text/css" href="/css/cchannel.css">
 </head>
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include __DIR__ . '/../includes/header.php'; ?>
     
     <div class="container">
-        <h2>Create a New Subchannel</h2>
+        <h2>Create a New Channel</h2>
         <p style="color: #888; font-size: 0.85rem;">Unlocked by your <strong>[<?php echo htmlspecialchars($user_role, ENT_QUOTES, 'UTF-8'); ?>]</strong> status.</p>
         <hr style="border: 0; border-top: 1px solid #333; margin: 1.5rem 0;">
 

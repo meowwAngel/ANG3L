@@ -26,6 +26,7 @@ if (!empty($channel_search)) {
 $channels = $stmt_channels->fetchAll(PDO::FETCH_ASSOC);
 
 $current_logged_in_user = $_SESSION['user_id'] ?? '';
+$current_role = $_SESSION['role'] ?? '';
 $stmt = $db->prepare("
     SELECT p.*, u.username, u.role, c.name as channel_name,
     (SELECT vote_type FROM votes WHERE user_id = ? AND post_id = p.id) as user_vote
@@ -63,7 +64,6 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php else: ?>
                 <?php foreach ($posts as $post): ?>
                     <div class="post-card" data-post-id="<?php echo $post['id']; ?>">
-                        <!-- Vote Column -->
                         <div class="vote-section">
                             <button class="vote-btn upvote <?php echo ($post['user_vote'] == 1) ? 'active' : ''; ?>" onclick="castVote('<?php echo $post['id']; ?>', 1)">▲</button>
                             <span class="vote-count" id="vote-count-<?php echo $post['id']; ?>"><?php echo $post['votes_count']; ?></span>
@@ -81,6 +81,15 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             
                             <a class="post-title" href="/post.php?id=<?php echo $post['id']; ?>"><?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?></a>
+
+                            <?php if (isset($_SESSION['user_id']) && ($_SESSION['user_id'] === $post['user_id'] || $current_role === 'admin')): ?>
+                                <div style="margin-top: 0.5rem;">
+                                    <form action="/delete_post.php" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this post?');">
+                                        <input type="hidden" name="post_id" value="<?php echo $post['id']; ?>">
+                                        <button type="submit" style="background: none; border: none; color: #ff5555; cursor: pointer; font-size: 0.8rem; padding: 0;">Delete</button>
+                                    </form>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 <?php endforeach; ?>

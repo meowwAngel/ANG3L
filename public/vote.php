@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $data = json_decode(file_get_contents('php://input'), true);
 $post_id = $data['post_id'] ?? '';
-$vote_type = intval($data['vote_type'] ?? 0); // 1 for upvote, -1 for downvote
+$vote_type = intval($data['vote_type'] ?? 0);
 $user_id = $_SESSION['user_id'];
 
 if (empty($post_id) || !in_array($vote_type, [1, -1])) {
@@ -62,7 +62,6 @@ if ($existing_vote) {
 $stmt = $db->prepare("UPDATE posts SET votes_count = votes_count + ? WHERE id = ?");
 $stmt->execute([$vote_difference, $post_id]);
 
-// 4. Update the post author's karma ONLY IF the voter is NOT the author
 if ($karma_difference !== 0 && $user_id !== $author_id) {
     $stmt = $db->prepare("UPDATE users SET karma = karma + ? WHERE id = ?");
     $stmt->execute([$karma_difference, $author_id]);
