@@ -1,0 +1,6 @@
+*.sqlite
+*.db
+*.sqlite3
+database.php
+.env
+.tor/

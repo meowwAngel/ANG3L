@@ -33,25 +33,7 @@ if (!$post) {
     <meta charset="utf-8">
     <title><?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?> - ANG3L</title>
     <link rel="stylesheet" type="text/css" href="/css/header.css">
-    <style>
-        body { background: #000000; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
-        .container { max-width: 800px; margin: 2rem auto; padding: 20px; background: #1a1a1a; border: 1px solid #333; }
-        
-        /* Post Card Layout with Voting */
-        .post-container { display: flex; gap: 20px; align-items: flex-start; }
-        .vote-section { display: flex; flex-direction: column; align-items: center; min-width: 30px; }
-        .vote-btn { background: none; border: none; color: #666; cursor: pointer; font-size: 1.2rem; padding: 0; line-height: 1; }
-        .vote-btn:hover { color: whitesmoke; }
-        .vote-btn.upvote.active { color: #00ff66; }
-        .vote-btn.downvote.active { color: #ff4d4d; }
-        .vote-count { font-size: 1rem; font-weight: bold; color: #ccc; margin: 6px 0; }
-        
-        .post-main { flex: 1; }
-        .meta { font-size: 0.85rem; color: #888; margin-bottom: 10px; }
-        .channel-link { color: #00ffcc; text-decoration: none; }
-        .post-title { font-size: 1.5rem; margin-top: 0; margin-bottom: 15px; color: whitesmoke; }
-        .post-body { color: #ccc; line-height: 1.6; font-size: 0.95rem; white-space: pre-wrap; word-break: break-word; }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/post.css">
 </head>
 <body>
     <?php include __DIR__ . '/../includes/header.php'; ?>

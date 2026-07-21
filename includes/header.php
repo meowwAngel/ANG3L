@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 ?>
 <header>
-    <span class="TITLE"><a href="/index.php">ANG3L</a></span>
+    <span class="TITLE"><a href="/">ANG3L</a></span>
     
     <?php if (isset($_SESSION['user_id'])): ?>
         <p><a href="/logout.php">&nbsp;/ Log Out</a></p>

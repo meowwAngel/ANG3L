@@ -2,7 +2,6 @@
 session_start();
 require_once __DIR__ . '/../db.php';
 
-// 1. Strict Security: Must be logged in and have the 'admin' role
 if (!isset($_SESSION['user_id']) || ($_SESSION['role'] ?? '') !== 'admin') {
     http_response_code(403);
     die("Access Denied. Admins only.");
@@ -15,7 +14,6 @@ if (empty($_SESSION['csrf_token'])) {
 $success = "";
 $error = "";
 
-// 2. Handle Admin Actions (Update Role / Update Karma / Delete User)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $token = $_POST['csrf_token'] ?? '';
     if (!hash_equals($_SESSION['csrf_token'] ?? '', $token)) {
@@ -52,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// 3. Search & Fetch Users
 $search = trim($_GET['search'] ?? '');
 if (!empty($search)) {
     $stmt = $db->prepare("SELECT id, username, role, karma, created_at FROM users WHERE username LIKE ? ORDER BY id DESC");
@@ -67,23 +64,9 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Admin Dashboard - ANG3L</title>
+    <title>Admin Panel - ANG3L</title>
     <link rel="stylesheet" type="text/css" href="/css/header.css">
-    <style>
-        body { background: #000000; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
-        .container { max-width: 1000px; margin: 2rem auto; padding: 20px; background: #1a1a1a; border: 1px solid #333; }
-        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-        th, td { padding: 10px; border: 1px solid #333; text-align: left; font-size: 0.9rem; }
-        th { background: #111; color: #00ffcc; }
-        input[type="text"], input[type="number"], select { background: #000; color: whitesmoke; border: 1px solid #444; padding: 5px; }
-        button { background: #333; color: whitesmoke; border: 1px solid #555; padding: 5px 10px; cursor: pointer; }
-        button:hover { background: #444; }
-        .btn-danger { background: #330000; border-color: #ff4d4d; color: #ff4d4d; }
-        .btn-danger:hover { background: #550000; }
-        .alert-success { color: #00ff66; background: #003311; padding: 10px; margin-bottom: 1rem; border: 1px solid #00ff66; }
-        .alert-error { color: #ff4d4d; background: #330000; padding: 10px; margin-bottom: 1rem; border: 1px solid #ff4d4d; }
-        .search-box { margin-bottom: 1.5rem; display: flex; gap: 10px; }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/admin.css">
 </head>
 <body>
     <?php include __DIR__ . '/../includes/header.php'; ?>
@@ -134,6 +117,9 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     <input type="hidden" name="user_id" value="<?php echo $u['id']; ?>">
                                     <input type="hidden" name="action" value="update_role">
                                     <select name="role" onchange="this.form.submit()">
+                                        <!--Roles-->
+                                        <option value="scammer" <?php if($u['role']=='scammer') echo 'selected'; ?>>scammer</option>
+                                        <option value="sus" <?php if($u['role']=='sus') echo 'selected'; ?>>sus</option>
                                         <option value="member" <?php if($u['role']=='member') echo 'selected'; ?>>member</option>
                                         <option value="beta_tester" <?php if($u['role']=='beta_tester') echo 'selected'; ?>>beta_tester</option>
                                         <option value="mods" <?php if($u['role']=='mods') echo 'selected'; ?>>mods</option>

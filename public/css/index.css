@@ -1,4 +1,193 @@
 body {
-    background-color: rgb(25, 25, 25);
+    background: #000000;
+    color: whitesmoke;
+    font-family: "JetBrainsMono NF", monospace;
     margin: 0;
+    padding-top: 60px;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 2rem 20px;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    align-items: start;
+    box-sizing: border-box;
+}
+
+.feed-container {
+    background: transparent;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.post-card {
+    display: flex;
+    gap: 15px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 15px;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.post-title {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    word-break: break-word;
+}
+
+.post-title:hover {
+    text-decoration: underline;
+}
+
+.meta {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.channel-link {
+    color: #00ffcc;
+    text-decoration: none;
+}
+
+.vote-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 30px;
+}
+
+.vote-btn {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+    line-height: 1;
+}
+
+.vote-btn:hover {
+    color: whitesmoke;
+}
+
+.vote-btn.upvote.active {
+    color: #00ff66;
+}
+
+.vote-btn.downvote.active {
+    color: #ff4d4d;
+}
+
+.vote-count {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #ccc;
+    margin: 4px 0;
+}
+
+.post-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.sidebar {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    padding: 20px;
+    position: sticky;
+    top: 80px;
+}
+
+.sidebar h3 {
+    margin-top: 0;
+    color: pink;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.sidebar form {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 1rem;
+}
+
+.sidebar input[type="text"] {
+    flex: 1;
+    background: #000;
+    color: whitesmoke;
+    border: 1px solid #444;
+    padding: 6px;
+    font-family: inherit;
+    font-size: 0.85rem;
+}
+
+.sidebar button {
+    background: #333;
+    color: whitesmoke;
+    border: 1px solid #555;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.sidebar button:hover {
+    background: #444;
+}
+
+.channel-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.channel-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #222;
+}
+
+.channel-list li:last-child {
+    border-bottom: none;
+}
+
+.sidebar-c-link {
+    color: pink;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    display: block;
+}
+
+.sidebar-c-link:hover {
+    text-decoration: underline;
+}
+
+.channel-desc {
+    font-size: 0.75rem;
+    color: #888;
+    margin: 2px 0 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        position: static;
+    }
 }

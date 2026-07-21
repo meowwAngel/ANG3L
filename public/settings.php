@@ -69,6 +69,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
     <title>Account Settings - ANG3L</title>
     <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/settings.css">
     <style>
         body { background: #000000; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
         .settings-container { max-width: 600px; margin: 3rem auto; padding: 25px; background: #1a1a1a; border: 1px solid #333; }

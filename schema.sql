@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS posts (
 CREATE TABLE IF NOT EXISTS votes (
     user_id INTEGER NOT NULL,
     post_id INTEGER NOT NULL,
-    vote_type INTEGER NOT NULL, -- 1 for upvote, -1 for downvote
+    vote_type INTEGER NOT NULL,
     PRIMARY KEY (user_id, post_id),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
     FOREIGN KEY (post_id) REFERENCES posts(id) ON DELETE CASCADE

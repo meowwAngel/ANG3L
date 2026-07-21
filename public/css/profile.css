@@ -1,0 +1,22 @@
+body {
+    background: #000000;
+    color: whitesmoke;
+    font-family: "JetBrainsMono NF", monospace;
+    margin: 0;
+    padding-top: 60px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 20px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+}
+
+.post-card {
+    background: #111;
+    border: 1px solid #333;
+    padding: 15px;
+    margin-top: 1rem;
+}

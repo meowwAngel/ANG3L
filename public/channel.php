@@ -32,16 +32,7 @@ $posts = $stmt_posts->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
     <title>c/<?php echo htmlspecialchars($channel['name'], ENT_QUOTES, 'UTF-8'); ?> - ANG3L</title>
     <link rel="stylesheet" type="text/css" href="/css/header.css">
-    <style>
-        body { background: #000000; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
-        .container { max-width: 800px; margin: 2rem auto; padding: 20px; }
-        .channel-header { background: #1a1a1a; border: 1px solid #333; padding: 20px; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
-        .post-card { background: #1a1a1a; border: 1px solid #333; padding: 15px; margin-bottom: 1rem; }
-        .post-title { color: whitesmoke; text-decoration: none; font-size: 1.2rem; font-weight: bold; }
-        .post-title:hover { text-decoration: underline; }
-        .btn { background: #333; color: whitesmoke; border: 1px solid #555; padding: 8px 14px; text-decoration: none; cursor: pointer; }
-        .btn:hover { background: #444; }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/channel.css">
 </head>
 <body>
     <?php include __DIR__ . '/../includes/header.php'; ?>

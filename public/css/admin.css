@@ -1,0 +1,87 @@
+body {
+    background: #000000;
+    color: whitesmoke;
+    font-family: "JetBrainsMono NF", monospace;
+    margin: 0;
+    padding-top: 60px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 20px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #333;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+th {
+    background: #111;
+    color: #00ffcc;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    background: #000;
+    color: whitesmoke;
+    border: 1px solid #444;
+    padding: 5px;
+}
+
+button {
+    background: #333;
+    color: whitesmoke;
+    border: 1px solid #555;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #444;
+}
+
+.btn-danger {
+    background: #330000;
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+}
+
+.btn-danger:hover {
+    background: #550000;
+}
+
+.alert-success {
+    color: #00ff66;
+    background: #003311;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #00ff66;
+}
+
+.alert-error {
+    color: #ff4d4d;
+    background: #330000;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ff4d4d;
+}
+
+.search-box {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 10px;
+}
