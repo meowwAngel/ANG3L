@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteBase /
+
+# Do not apply rewriting if the file or directory actually exists physically
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Route /u/username to profile.php
+RewriteRule ^u/([a-zA-Z0-9_-]+)/?$ profile.php?user=$1 [L,QSA]
+
+# Route /c/channelname to channel.php
+RewriteRule ^c/([a-zA-Z0-9_-]+)/?$ channel.php?name=$1 [L,QSA]
