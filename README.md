@@ -7,6 +7,5 @@ try it out: ```php -S localhost:8000 -t public```
 Add these lines to the bottom of your php.ini config:
 <br>
 <p >extension=sqlite3</p>
-<br>
 <p style='color: blue;'>extension=pdo_sqlite</p>
 <br>
