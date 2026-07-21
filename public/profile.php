@@ -27,7 +27,7 @@ $user_posts = $stmt_posts->fetchAll(PDO::FETCH_ASSOC);
     <title>Profile: <?php echo htmlspecialchars($profile_user['username'], ENT_QUOTES, 'UTF-8'); ?> - ANG3L</title>
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <style>
-        body { background: #121212; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
+        body { background: #000000; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
         .container { max-width: 800px; margin: 2rem auto; padding: 20px; background: #1a1a1a; border: 1px solid #333; }
         .post-card { background: #111; border: 1px solid #333; padding: 15px; margin-top: 1rem; }
     </style>

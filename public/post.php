@@ -9,7 +9,6 @@ if (empty($post_id)) {
     die("Post not found.");
 }
 
-// Fetch the post along with channel, author info, and the current user's vote state
 $current_logged_in_user = $_SESSION['user_id'] ?? '';
 $stmt = $db->prepare("
     SELECT p.*, u.username, u.role, c.name as channel_name,
@@ -35,7 +34,7 @@ if (!$post) {
     <title><?php echo htmlspecialchars($post['title'], ENT_QUOTES, 'UTF-8'); ?> - ANG3L</title>
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <style>
-        body { background: #121212; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
+        body { background: #000000; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
         .container { max-width: 800px; margin: 2rem auto; padding: 20px; background: #1a1a1a; border: 1px solid #333; }
         
         /* Post Card Layout with Voting */
@@ -86,7 +85,6 @@ if (!$post) {
         </div>
     </div>
 
-    <!-- Asynchronous Voting Script -->
     <script>
     async function castVote(postId, voteType) {
         try {

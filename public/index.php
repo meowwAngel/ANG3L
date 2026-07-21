@@ -50,7 +50,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>ANG3L Forum</title>
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <style>
-        body { background: #121212; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
+        body { background: #000000; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
         .wrapper { width: 100%; max-width: none; margin: 0; padding: 2rem 20px; display: grid; grid-template-columns: 1fr 300px; gap: 2rem; align-items: start; box-sizing: border-box; }
         .feed-container { background: transparent; width: 100%; min-width: 0; margin: 0; padding: 0; }
         .post-card { display: flex; gap: 15px; background: #1a1a1a; border: 1px solid #333; padding: 15px; margin-bottom: 1rem; align-items: center; }

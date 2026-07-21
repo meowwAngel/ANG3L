@@ -1,0 +1,3 @@
+DataDirectory /home/angel/Projects/ANG3L/.tor/data
+HiddenServiceDir /home/angel/Projects/ANG3L/.tor/service/
+HiddenServicePort 80 127.0.0.1:8000

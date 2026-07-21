@@ -70,7 +70,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Admin Dashboard - ANG3L</title>
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <style>
-        body { background: #121212; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
+        body { background: #000000; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
         .container { max-width: 1000px; margin: 2rem auto; padding: 20px; background: #1a1a1a; border: 1px solid #333; }
         table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
         th, td { padding: 10px; border: 1px solid #333; text-align: left; font-size: 0.9rem; }
@@ -89,7 +89,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php include __DIR__ . '/../includes/header.php'; ?>
     
     <div class="container">
-        <h2>Admin Management Panel</h2>
+        <h2>Admin Panel</h2>
         <p style="color: #888; font-size: 0.85rem;">Full database control interface restricted to administrators.</p>
         <hr style="border: 0; border-top: 1px solid #333; margin: 1.5rem 0;">
 
@@ -100,7 +100,6 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="alert-error"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></div>
         <?php endif; ?>
 
-        <!-- Search Bar -->
         <form class="search-box" method="GET" action="admin.php">
             <input type="text" name="search" placeholder="Search username..." value="<?php echo htmlspecialchars($search, ENT_QUOTES, 'UTF-8'); ?>">
             <button type="submit">Search</button>
@@ -109,7 +108,6 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php endif; ?>
         </form>
 
-        <!-- User Management Table -->
         <table>
             <thead>
                 <tr>
@@ -129,8 +127,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <tr>
                             <td><?php echo $u['id']; ?></td>
                             <td><a href="/u/<?php echo htmlspecialchars($u['username'], ENT_QUOTES, 'UTF-8'); ?>" style="color: #00ffcc; text-decoration: none;"><?php echo htmlspecialchars($u['username'], ENT_QUOTES, 'UTF-8'); ?></a></td>
-                            
-                            <!-- Role Update Form -->
+
                             <td>
                                 <form action="admin.php" method="POST" style="display:inline;">
                                     <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
@@ -146,7 +143,6 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 </form>
                             </td>
 
-                            <!-- Karma Update Form -->
                             <td>
                                 <form action="admin.php" method="POST" style="display:inline; display:flex; gap:5px;">
                                     <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
@@ -159,7 +155,6 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                             <td style="color: #888; font-size: 0.8rem;"><?php echo $u['created_at']; ?></td>
 
-                            <!-- Delete User -->
                             <td>
                                 <form action="admin.php" method="POST" onsubmit="return confirm('Are you sure you want to delete user <?php echo htmlspecialchars($u['username'], ENT_QUOTES, 'UTF-8'); ?>?');" style="display:inline;">
                                     <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">

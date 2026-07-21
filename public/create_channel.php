@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Create Subchannel | ANG3L</title>
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <style>
-        body { background: #121212; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
+        body { background: #000000; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
         .container { max-width: 600px; margin: 3rem auto; padding: 25px; background: #1a1a1a; border: 1px solid #333; }
         .form-group { margin-bottom: 1.5rem; }
         label { display: block; margin-bottom: 0.5rem; color: #ccc; }

@@ -33,7 +33,7 @@ $posts = $stmt_posts->fetchAll(PDO::FETCH_ASSOC);
     <title>c/<?php echo htmlspecialchars($channel['name'], ENT_QUOTES, 'UTF-8'); ?> - ANG3L</title>
     <link rel="stylesheet" type="text/css" href="/css/header.css">
     <style>
-        body { background: #121212; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
+        body { background: #000000; color: whitesmoke; font-family: "JetBrainsMono NF", monospace; margin: 0; padding-top: 60px; }
         .container { max-width: 800px; margin: 2rem auto; padding: 20px; }
         .channel-header { background: #1a1a1a; border: 1px solid #333; padding: 20px; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
         .post-card { background: #1a1a1a; border: 1px solid #333; padding: 15px; margin-bottom: 1rem; }
