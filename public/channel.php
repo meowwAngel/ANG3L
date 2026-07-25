@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once __DIR__ . '/../db.php';
 
 $name = $_GET['name'] ?? '';
@@ -51,6 +50,7 @@ $posts = $stmt_posts->fetchAll(PDO::FETCH_ASSOC);
                     <?php endif; ?>
                     <?php if ($current_role === 'admin'): ?>
                         <form action="/delete_channel.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this channel and all its posts?');" style="margin: 0;">
+                            <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
                             <input type="hidden" name="channel_id" value="<?php echo $channel['id']; ?>">
                             <button type="submit" style="background: #ff5555; color: white; border: none; padding: 6px 12px; cursor: pointer; font-size: 0.85rem; border-radius: 4px;">Delete Channel</button>
                         </form>
@@ -104,7 +104,7 @@ $posts = $stmt_posts->fetchAll(PDO::FETCH_ASSOC);
             <h3>About Channel</h3>
             <p style="color: #aaa; font-size: 0.85rem;">Created on <?php echo $channel['created_at'] ?? 'N/A'; ?></p>
             <div style="margin-top: 1.5rem; text-align: center;">
-                <a href="/index.php" style="display: block; background: #222; color: #00ffcc; border: 1px dashed #00ffcc; padding: 8px; text-decoration: none; font-size: 0.85rem;">← Back to Global Feed</a>
+                <a href="/index.php" style="display: block; background: #222; color: pink; border: 1px dashed pink; padding: 8px; text-decoration: none; font-size: 0.85rem;">← Back to Global Feed</a>
             </div>
         </div>
     </div>

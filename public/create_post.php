@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once __DIR__ . '/../db.php';
 
 // 1. Strict Security: Must be logged in to post

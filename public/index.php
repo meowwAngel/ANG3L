@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once __DIR__ . '/../db.php';
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -56,7 +55,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     <div class="wrapper">
         <div class="feed-container">
-            <h2>Global Feed</h2>
+            <h2>Feed</h2>
             <hr style="border: 0; border-top: 1px solid #333; margin: 1rem 0;">
 
             <?php if (empty($posts)): ?>

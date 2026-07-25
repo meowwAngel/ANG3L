@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         try {
 
-            $stmt = $db->prepare("INSERT INTO users (username, password_hash) VALUES (?, ?)");
+            $stmt = $db->prepare("INSERT INTO users (username, password_hash, role) VALUES (?, ?, 'member')");
             $stmt->execute([$username, $password_hash]);
 
             $message = "Registration successful! You can now log in.";

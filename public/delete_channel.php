@@ -1,21 +1,26 @@
 <?php
-session_start();
-require_once 'db.php';
+require_once __DIR__ . '/../db.php';
 
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
-    exit;
+if (!isset($_SESSION['user_id']) || ($_SESSION['role'] ?? '') !== 'admin') {
+    http_response_code(403);
+    die("Get a job");
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $channel_id = $_POST['channel_id'] ?? null;
+    $token = $_POST['csrf_token'] ?? '';
+    if (!hash_equals($_SESSION['csrf_token'] ?? '', $token)) {
+        http_response_code(403);
+        die("CSRF validation failed. Action blocked.");
+    }
 
-    if ($channel_id) {
-        // Optional: Add an admin check here if only admins can delete channels
-        $stmt = $db->prepare("DELETE FROM channels WHERE id = :channel_id");
-        $stmt->execute([':channel_id' => $channel_id]);
+    $channel_id = intval($_POST['channel_id'] ?? 0);
+
+    if ($channel_id > 0) {
+        $stmt = $db->prepare("DELETE FROM subchannels WHERE id = ?");
+        $stmt->execute([$channel_id]);
     }
 }
 
-header('Location: index.php');
+header('Location: /');
 exit;
+?>

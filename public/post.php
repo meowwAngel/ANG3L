@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once __DIR__ . '/../db.php';
 
 $post_id = $_GET['id'] ?? '';
@@ -47,7 +46,6 @@ if (!$post) {
                 <button class="vote-btn downvote <?php echo ($post['user_vote'] == -1) ? 'active' : ''; ?>" onclick="castVote('<?php echo $post['id']; ?>', -1)">▼</button>
             </div>
 
-            <!-- Main Post Content -->
             <div class="post-main">
                 <div class="meta">
                     <a class="channel-link" href="/c/<?php echo htmlspecialchars($post['channel_name'], ENT_QUOTES, 'UTF-8'); ?>">c/<?php echo htmlspecialchars($post['channel_name'], ENT_QUOTES, 'UTF-8'); ?></a> 

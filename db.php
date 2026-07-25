@@ -20,6 +20,10 @@ if (isset($_SESSION['expire_time']) && time() > $_SESSION['expire_time']) {
     session_destroy();
 }
 
+if (session_id() !== '' && empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 try {
     // __DIR__ is the exact folder where db.php lives (your project root)
     $dbPath = __DIR__ . '/ang3l.db';
