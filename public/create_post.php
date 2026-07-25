@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../db.php';
 
-// 1. Strict Security: Must be logged in to post
 if (!isset($_SESSION['user_id'])) {
     header("Location: /login.php");
     exit;
@@ -9,7 +8,6 @@ if (!isset($_SESSION['user_id'])) {
 
 $channel_name = $_GET['channel'] ?? '';
 
-// Fetch subchannel ID
 $stmt = $db->prepare("SELECT id, name FROM subchannels WHERE name = ?");
 $stmt->execute([$channel_name]);
 $channel = $stmt->fetch(PDO::FETCH_ASSOC);

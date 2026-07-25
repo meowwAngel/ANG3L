@@ -10,7 +10,7 @@ $allowed_roles = ['beta_tester', 'legends', 'mods', 'admin'];
 $user_role = $_SESSION['role'] ?? 'member';
 
 if (!in_array($user_role, $allowed_roles)) {
-    header("Location: /index.php?error=unauthorized_channel_creation");
+    header("Location: /");
     exit;
 }
 

@@ -3,7 +3,7 @@ session_start();
 require_once __DIR__ . '/../db.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /login.php');
+    header('Location: /login.php'); // Or wherever your login page is
     exit;
 }
 
@@ -21,7 +21,7 @@ $stmt->execute([$post_id]);
 $post = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$post) {
-    header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/'));
+    header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/index.php'));
     exit;
 }
 $author_id = $post['user_id'];
@@ -61,5 +61,6 @@ if ($karma_difference !== 0 && $user_id !== $author_id) {
     $stmt->execute([$karma_difference, $author_id]);
 }
 
-header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/'));
+// Redirect the user back to the page they voted from
+header('Location: ' . ($_SERVER['HTTP_REFERER'] ?? '/index.php'));
 exit;

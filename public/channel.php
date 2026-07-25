@@ -46,13 +46,13 @@ $posts = $stmt_posts->fetchAll(PDO::FETCH_ASSOC);
                 <h2>c/<?php echo htmlspecialchars($channel['name'], ENT_QUOTES, 'UTF-8'); ?></h2>
                 <div style="display: flex; gap: 10px; align-items: center;">
                     <?php if (isset($_SESSION['user_id'])): ?>
-                        <a href="/create_post.php?channel=<?php echo urlencode($channel['name']); ?>" style="background: #00ffcc; color: #000; padding: 6px 12px; text-decoration: none; font-size: 0.85rem; border-radius: 4px; font-weight: bold;">+ Create Post</a>
+                        <a href="/create_post.php?channel=<?php echo urlencode($channel['name']); ?>" style="background: #00ffcc; color: black; border: 2px; padding: 6px 12px; cursor: pointer; font-size: 0.85rem;">+ Create Post</a>
                     <?php endif; ?>
                     <?php if ($current_role === 'admin'): ?>
                         <form action="/delete_channel.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this channel and all its posts?');" style="margin: 0;">
                             <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
                             <input type="hidden" name="channel_id" value="<?php echo $channel['id']; ?>">
-                            <button type="submit" style="background: #ff5555; color: white; border: none; padding: 6px 12px; cursor: pointer; font-size: 0.85rem; border-radius: 4px;">Delete Channel</button>
+                            <button type="submit" style="background: #ff5555; color: black; border: 2px; padding: 6px 12px; cursor: pointer; font-size: 0.85rem;">Delete Channel</button>
                         </form>
                     <?php endif; ?>
                 </div>
@@ -104,7 +104,7 @@ $posts = $stmt_posts->fetchAll(PDO::FETCH_ASSOC);
             <h3>About Channel</h3>
             <p style="color: #aaa; font-size: 0.85rem;">Created on <?php echo $channel['created_at'] ?? 'N/A'; ?></p>
             <div style="margin-top: 1.5rem; text-align: center;">
-                <a href="/index.php" style="display: block; background: #222; color: pink; border: 1px dashed pink; padding: 8px; text-decoration: none; font-size: 0.85rem;">← Back to Global Feed</a>
+                <a href="/index.php" style="display: block; background: #222; color: pink; border: 1px dashed pink; padding: 8px; text-decoration: none; font-size: 0.85rem;">← Back to Main Feed</a>
             </div>
         </div>
     </div>

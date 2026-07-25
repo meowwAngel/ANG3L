@@ -42,7 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stmt = $db->prepare("UPDATE users SET username = ?, password_hash = ? WHERE id = ?");
                     $stmt->execute([$new_username, $new_hash, $user_id]);
                 } else {
-                    // Update username only
                     $stmt = $db->prepare("UPDATE users SET username = ? WHERE id = ?");
                     $stmt->execute([$new_username, $user_id]);
                 }

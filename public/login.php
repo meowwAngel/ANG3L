@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            $_SESSION['role'] = $user['role'] ?? 'member'; // Fallback to 'member' if empty
+            $_SESSION['role'] = $user['role'] ?? 'member';
 
             $duration = filter_input(INPUT_POST, 'remember_duration', FILTER_VALIDATE_INT);
             $max_duration = 604800;

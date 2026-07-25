@@ -25,14 +25,12 @@ if (session_id() !== '' && empty($_SESSION['csrf_token'])) {
 }
 
 try {
-    // __DIR__ is the exact folder where db.php lives (your project root)
     $dbPath = __DIR__ . '/ang3l.db';
     
     $db = new PDO('sqlite:' . $dbPath);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $db->exec("PRAGMA foreign_keys = ON;");
 } catch (PDOException $e) {
-    // Temporarily change this to print the real error while debugging:
     die("Database error: " . $e->getMessage());
 }
 ?>

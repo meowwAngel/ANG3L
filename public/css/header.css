@@ -45,7 +45,7 @@ header {
 .TITLE {
     font-size: 40px;
     text-align: left;
-    margin-right: auto; /* This acts like a spacer, pushing everything else to the right */
+    margin-right: auto;
 }
 
 p a {
